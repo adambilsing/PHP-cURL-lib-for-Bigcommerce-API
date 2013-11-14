@@ -2,7 +2,7 @@
 /**
  *Class to instantiate different api connections
  * 
- * @author Adam Bilsing <adambilsing@gmail.com
+ * @author Adam Bilsing <adambilsing@gmail.com>
  */
 class connection
 {
