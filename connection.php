@@ -125,11 +125,11 @@ class connection
         $json = json_encode($fields);
 
         $curl = curl_init();
-	    curl_setopt($curl, CURLOPT_URL, $url);
-		curl_setopt($curl, CURLOPT_HTTPHEADER, $this->_headers);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $this->_headers);
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 	    curl_setopt($curl, CURLOPT_VERBOSE, 1);
-		curl_setopt($curl, CURLOPT_HEADER, 1);
+	    curl_setopt($curl, CURLOPT_HEADER, 1);
 	    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
 	    curl_setopt($curl, CURLOPT_POSTFIELDS, $json); 
 	    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
