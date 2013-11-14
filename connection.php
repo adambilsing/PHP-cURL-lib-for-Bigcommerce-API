@@ -122,11 +122,11 @@ class connection
 	public function put($resource, $fields) {
 
 		$url = $this->_path . '/api/v2' . $resource;
-        $json = json_encode($fields);
-
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $this->_headers);
+		$json = json_encode($fields);
+		
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_HTTPHEADER, $this->_headers);
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 	    curl_setopt($curl, CURLOPT_VERBOSE, 1);
 	    curl_setopt($curl, CURLOPT_HEADER, 1);
@@ -136,9 +136,9 @@ class connection
 	    $response = curl_exec($curl);
 	    $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 	    $header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
-		$headers = substr($response, 0, $header_size);
-		$body = substr($response, $header_size);
-		self::http_parse_headers($headers);
+	    $headers = substr($response, 0, $header_size);
+	    $body = substr($response, $header_size);
+	    self::http_parse_headers($headers);
 	    curl_close($curl);
 		if ($http_status == 200) {
 			$results = json_decode($body, true);
@@ -196,24 +196,24 @@ class connection
 	 * @return proper response or var_dump error
 	 */
 	public function delete($resource) {
-
+			
 		$url = $this->_path . '/api/v2' . $resource;
-
-	    $curl = curl_init();
-	    curl_setopt($curl, CURLOPT_URL, $url);
+		
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $url);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $this->_headers);
-	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-	    curl_setopt($curl, CURLOPT_VERBOSE, 1);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_VERBOSE, 1);
 		curl_setopt($curl, CURLOPT_HEADER, 1);
-	    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
-	    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-	    $response = curl_exec($curl);
+		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		$response = curl_exec($curl);
 		$http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 		$header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 		$headers = substr($response, 0, $header_size);
 		$body = substr($response, $header_size);
 		self::http_parse_headers($headers);	        
-	    curl_close ($curl);
+		curl_close ($curl);
 	    if ($http_status == 204) {
 	     	return $http_status . ' DELETED';
 		 } else {
