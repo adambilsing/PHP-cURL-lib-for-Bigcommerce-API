@@ -214,7 +214,7 @@ class connection
 		$body = substr($response, $header_size);
 		self::http_parse_headers($headers);	        
 		curl_close ($curl);
-	    if ($http_status == 204) {
+		if ($http_status == 204) {
 	     	return $http_status . ' DELETED';
 		 } else {
 		 	$this->error($body, $url, null, 'DELETE');
