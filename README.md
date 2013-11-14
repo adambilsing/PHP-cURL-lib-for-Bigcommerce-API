@@ -11,7 +11,7 @@ $store = new connection('Username', 'API path', 'API token');
 
 call various methods to the connection
 
-$store->get('RESOURCE'); <html><br/></html>
+$store->get('RESOURCE');
 
 $store->delete('RESOURCE');
 
