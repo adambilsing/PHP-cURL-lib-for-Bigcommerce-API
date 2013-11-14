@@ -12,8 +12,11 @@ $store = new connection('Username', 'API path', 'API token');
 call various methods to the connection
 
 $store->get('RESOURCE');
+
 $store->delete('RESOURCE');
+
 $store->post('RESOURCE', $fields);
+
 $store->put('RESOURCE', $fields);
 
 If the request fails the error details will be stored in the $error var.
