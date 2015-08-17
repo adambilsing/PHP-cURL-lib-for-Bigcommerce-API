@@ -21,7 +21,7 @@ $store->post('RESOURCE', $fields);
 $store->put('RESOURCE', $fields);
 ```
 
-If the request fails the error details will be stored in the $error var.
+If the request fails the error details will be stored in the public $errors member.
 
 If the requests per hour limit reaches 100 or less the library will automatically take 5 minutes between requests in order to provide enough
 time for the requests to regenerate.  Once the request limit is above 100 the library will resume requests at a normal frequency.
